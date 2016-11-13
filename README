@@ -1,5 +1,5 @@
-This is a git repo
-Second commit test
+#This is a git repo
+**Second** commit test
 
 git add --all 
 git commit -am "<commit message>"
