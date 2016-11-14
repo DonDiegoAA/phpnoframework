@@ -27,6 +27,9 @@ $whoops->register();
 $request = new \Http\HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
 $response = new \Http\HttpResponse;
 
+/**
+* FastRoute : https://github.com/nikic/FastRoute
+*/
 $routeDefinitionCallback = function (\FastRoute\RouteCollector $r) {
     $routes = include('Routes.php');
     foreach ($routes as $route) {
@@ -34,9 +37,6 @@ $routeDefinitionCallback = function (\FastRoute\RouteCollector $r) {
     }
 };
 
-/**
-* FastRoute : https://github.com/nikic/FastRoute
-*/
 $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
 
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPath());
