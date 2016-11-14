@@ -60,3 +60,5 @@ git pull
 git push
 ```
 **git pull** permet de récupérer les changements apportés en ligne - en cas de travail collaboratif par exemple, ou de création d'un fichier en ligne - et de les fusionnés avec la version locale.
+
+Pour éviter de mettre en ligne certains fichiers/dossiers, créer un fichier **.gitignore** dans la racine du projet (ou dans un sous-dossier) et ajouter les exceptions. Ajouter par exemple **vendor/** dans **.gitignore**
