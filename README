@@ -1,24 +1,6 @@
-#This is a git repo
-**Second** commit test
+PHP NO FRAMEWORK
 
-git add --all 
-git commit -am "<commit message>"
-git push
+Mise en oeuvre du tutorial de Patrick Louys: Create a PHP application without a framework
+https://github.com/PatrickLouys/no-framework-tutorial#create-a-php-application-without-a-framework
 
-git add -A
-git commit -m "some_message"
-
-git remote add origin https://github.com/user_name/Mytest.git //seulement 1 fois pour créer la branche
-
-git push origin master
-
-git remote add origin https://github.com/DonDiegoAA/phpnoframework.git
-git push -u origin master
-
-//git add -A
-
-================
-
-git commit -am "<commit message>"
-git pull
-git push
+Le fichier git-utilisation.md est une introduction à l'utilisation de Git
