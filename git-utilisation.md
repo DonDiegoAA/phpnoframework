@@ -55,6 +55,7 @@ git push -u origin master
 ```
 Une fois le premier commit fait, on peut juste faire 
 ```
+git add --all
 git commit -am "commit message"
 git pull
 git push
