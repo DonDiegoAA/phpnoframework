@@ -24,8 +24,14 @@ $whoops->register();
 /**
 * HTTP component : https://github.com/PatrickLouys/http
 */
-$request = new \Http\HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
-$response = new \Http\HttpResponse;
+$injector = include('Dependencies.php');
+
+$request = $injector->make('Http\HttpRequest');
+$response = $injector->make('Http\HttpResponse');
+
+/* On injecte plutôt avec Auryn */
+//$request = new \Http\HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
+//$response = new \Http\HttpResponse;
 
 /**
 * FastRoute : https://github.com/nikic/FastRoute
@@ -40,8 +46,8 @@ $routeDefinitionCallback = function (\FastRoute\RouteCollector $r) {
 $dispatcher = \FastRoute\simpleDispatcher($routeDefinitionCallback);
 
 $routeInfo = $dispatcher->dispatch($request->getMethod(), $request->getPath());
-echo $request->getMethod()." - ".$request->getPath();
-var_dump($routeInfo);
+//echo $request->getMethod()." - ".$request->getPath();
+//var_dump($routeInfo);
 
 switch ($routeInfo[0]) {
     case \FastRoute\Dispatcher::NOT_FOUND:
@@ -57,8 +63,8 @@ switch ($routeInfo[0]) {
 	    $method = $routeInfo[1][1];
 	    $vars = $routeInfo[2];
 
-	    $class = new $className;
-	    $class->$method($vars);
+	    $class = $injector->make($className);
+		$class->$method($vars);
 	    break;
 }
 
